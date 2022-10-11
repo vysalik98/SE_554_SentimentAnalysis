@@ -3,7 +3,7 @@ This repository is created to check in sentiment analysis project code in the cl
 
 # Project Setup - Sentiment Analysis 
 ## In one sentence describe what your program will do once completed.
-In our project we will input data such as customer reviews/tweets and perform sentimental analysis on the data and retreive percentage of positive, negative, neutral comments by the users. We would also attempt to implement data visualization.
+In our project, we will input customer reviews/tweets(text) data, perform sentiment analysis on the text, and provide overall sentiment as positive, negative, or neutral. On top of it, we would try to implement data visualization.
 
 ## With your group, choose a programming language. What language are you using and why?
 We are using python to implement this project because -
