@@ -1,7 +1,7 @@
 ## FEATURE LIST
 - 	Get sentiments of the input phrase as positive or negative.
 - 	A UI to interact with the software.
-- 	Collect user feedback ff the response whether it was wrong or right.
+- 	Collect user feedback of the response whether it was wrong or right.
 - 	Analytics/Dashboard of all the phrases or reviews tested by the user to give a summary.
 
 ## MINIMUM VIABLE PRODUCT
