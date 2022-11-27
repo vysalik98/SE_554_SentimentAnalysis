@@ -23,7 +23,11 @@ class Display:
         )
     image_local('image1a.jpg')
 
-    def sentiment_calculator(self):   
+    def sentiment_calculator(self):  
+
+        filename = 'program/test.pkl'
+        with open(filename, 'rb') as picklefile:
+            newpred = pickle.load(picklefile) 
         title = st.text_input('Your Text/ Phrase')
         if st.button('Check Sentiment'):
             if (newpred.predict([title])[0] == "positive"):
