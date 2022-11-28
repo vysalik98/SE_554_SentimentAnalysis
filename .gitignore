@@ -1,3 +1,12 @@
 
 .DS_Store
 .DS_Store
+
+sentiment/*
+sentiment_env/*
+.idea/*
+.ipynb_checkpoints/*
+program/.ipynb_checkpoints/*
+program/__pycache__/*
+unit_test/.ipynb_checkpoints/*
+unit_test/__pycache__/*
