@@ -4,7 +4,8 @@
 # Prachi        test_read_csv
 #   
 # Purpose       : Unit Test Cases for the function readcsv    
-# Environment   : Venv (Dependencies in requirements.txt)   
+# Environment   : Venv (Dependencies in requirements.txt)
+# Usage         : python3 -m unit_test/test_read_csv.py
 #########################################################################################
 
 import os
