@@ -24,8 +24,6 @@ class Display:
 
     #Calculation of the sentiments
     def sentiment_calculator(self):  
-
-        filename = ''
         with open("./model.pkl", 'rb') as picklefile:
             newpred = pickle.load(picklefile) 
         title = st.text_input('Your Text/ Phrase')
@@ -40,3 +38,5 @@ class Display:
 if __name__ == '__main__':
     ct = Display()
     ct.sentiment_calculator()
+
+
