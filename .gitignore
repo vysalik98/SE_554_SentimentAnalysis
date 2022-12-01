@@ -4,9 +4,11 @@
 
 sentiment/*
 sentiment_env/*
+testing_play.ipynb
 .idea/*
 .ipynb_checkpoints/*
 program/.ipynb_checkpoints/*
 program/__pycache__/*
 unit_test/.ipynb_checkpoints/*
 unit_test/__pycache__/*
+data/export_dataframe.csv
