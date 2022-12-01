@@ -22,6 +22,7 @@ class Display:
     def __init__(self):
         st.title('Sentiment Analysis Tool')
 
+    #Background image of the page
     def image_local(image_file):
         with open(image_file, "rb") as image_file:
             encoded_string = base64.b64encode(image_file.read())
@@ -38,6 +39,7 @@ class Display:
         )
     image_local('image1a.jpg')
 
+    #Calculation of the sentiments
     def sentiment_calculator(self):  
 
         filename = 'program/test.pkl'
