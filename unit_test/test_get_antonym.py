@@ -1,21 +1,21 @@
 #########################################################################################
-# Author        Date                Title
-# ******        ****                ******
-# Vysali        11/23/2022          test_get_antonym
+# Author        Title
+# ******        ****************
+# Vysali        test_get_antonym
 #   
-# Purpose : Unit Test Cases for the function get_antonym    
-# Environment : Venv (Dependencies in requirements.txt)
-# Usage :   python3 -m unittest  -v unit_test/test_get_antonym.py     
+# Purpose       : Unit Test Cases for the function get_antonym    
+# Environment   : Venv (Dependencies in requirements.txt)
+# Usage         : python3 -m unittest  -v unit_test/test_get_antonym.py     
 #########################################################################################
 
 import logging
 import unittest
-from program.sa_utils import AntonymReplacer
+from program.sentiment_analysis_functions import SentimentAnalysis
 
 class TestNegationHandling(unittest.TestCase):
 
     def func_to_test(self,word):
-        func = AntonymReplacer().get_antonym(word=word)
+        func = SentimentAnalysis().get_antonym(word=word)
         logging.info("Result through function : " + str(func))
         return func
 

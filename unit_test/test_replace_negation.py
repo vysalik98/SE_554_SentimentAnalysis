@@ -1,21 +1,21 @@
 #########################################################################################
-# Author        Date                Title
-# ******        ****                ******
-# Vysali        11/23/2022          test_replace_negation
+# Author        Title
+# ******        **********************
+# Vysali        test_replace_negation
 #   
-# Purpose : Unit Test Cases for the function replace_neg    
-# Environment : Venv (Dependencies in requirements.txt)
-# Usage :   python3 -m unittest  -v unit_test/test_replace_negation.py   
+# Purpose       : Unit Test Cases for the function replace_neg    
+# Environment   : Venv (Dependencies in requirements.txt)
+# Usage         : python3 -m unittest  -v unit_test/test_replace_negation.py   
 #########################################################################################
 
 import logging
 import unittest
-from program.sa_utils import AntonymReplacer
+from program.sentiment_analysis_functions import SentimentAnalysis
 
 class TestNegationHandling(unittest.TestCase):
 
     def func_to_test(self,string):
-        func = AntonymReplacer().replace_neg(string=string)
+        func = SentimentAnalysis().replace_neg(string=string)
         logging.info("Result through function : " + str(func))
         return func
 
