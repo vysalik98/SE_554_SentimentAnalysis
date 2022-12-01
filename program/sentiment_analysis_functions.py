@@ -19,6 +19,7 @@ from nltk.tokenize import word_tokenize
 from spacy.lang.en.stop_words import STOP_WORDS
 import string
 import spacy
+import pandas as pd
 
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -66,6 +67,31 @@ class SentimentAnalysis():
       sentence += word + " "
       i+=1
     return sentence
+
+  # This method cleans up the data with respect to stop words and punctuations
+  def text_data_cleaning(self, sentence):
+    doc = self.nlp(self.replace_neg(sentence))
+    tokens = []
+    for token in doc:
+      if token.lemma_ != "-PRON-":
+        temp = token.lemma_.lower().strip()
+      else:
+        temp = token.lower_
+      tokens.append(temp)
+    cleaned_tokens = []
+    for token in tokens:
+      if token not in self.stopwords and token not in self.punct:
+        cleaned_tokens.append(token)
+    return (cleaned_tokens)
+
+  # This method reads the file 
+  def readcsv(self):
+    data = pd.read_csv(self.filename, header=None)
+    data.head()
+    print(data.shape)
+    x = data[0]
+    y = data[1]
+    return x, y
 
 
 if __name__ == '__main__':
