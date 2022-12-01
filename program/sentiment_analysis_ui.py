@@ -15,7 +15,7 @@
 
 import streamlit as st
 import pickle
-from program.sentiment_analysis_functions import AntonymReplacer
+from program.sentiment_analysis_functions import SentimentAnalysis
 import base64
 
 class Display:
