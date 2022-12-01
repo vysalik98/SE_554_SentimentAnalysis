@@ -1,30 +1,40 @@
+#########################################################################################
+# Title : sentiment_analysis
+# 
+# Team/Authors        
+# ***************
+# 1. Vysali
+# 2. Prachi
+# 3. Saurav
+# 
+#   
+# Purpose     : Implementing code for Sentiment Analysis    
+# Environment : Venv (Dependencies in requirements.txt)
+# Usage       : python3 sentiment_analysis_functions.py
+#########################################################################################
+
 import nltk
 from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
 
 import pandas as pd
-from pyparsing import replace_with
-from sklearn.svm import LinearSVC
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.feature_extraction.text import TfidfVectorizer
 from spacy.lang.en.stop_words import STOP_WORDS
+
 import string
 import spacy
-import ssl
 
 nltk.download('punkt')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 
-class AntonymReplacer():
+class SentimentAnalysis():
 
   def __init__(self) -> None:
     self.punct = string.punctuation
     self.nlp = spacy.load('en_core_web_sm')
     self.stopwords = list(STOP_WORDS)
-    self.filename = '../data/IMDB Dataset.csv'
+    self.filename = '/Users/vysalikallepalli/Downloads/Github/SE_554_SentimentAnalysis/data/IMDB_Dataset.csv'
+
 
   # This method provide antonym nltk library
   def get_antonym(self, word):
@@ -37,20 +47,12 @@ class AntonymReplacer():
       return antonyms[0]
     else:
       return None
-
-  def replace_word(self,string):
-    replacement = {"n't": " not"}
-
-    for replace in replacement:
-      string = string.replace(replace, replacement[replace])
-
-    return string
     
   # This method replaces the not word from the sentences with antonym
   def replace_neg(self,string):
     i=0
     sent = word_tokenize(string)
-
+    
     len_sent = len(sent)
     words = []
     sentence = ''
@@ -68,7 +70,7 @@ class AntonymReplacer():
       i+=1
     return sentence
 
-
+  # This method cleans up the data with respect to stop words and punctuations
   def text_data_cleaning(self, sentence):
     doc = self.nlp(self.replace_neg(sentence))
     tokens = []
@@ -84,7 +86,7 @@ class AntonymReplacer():
         cleaned_tokens.append(token)
     return (cleaned_tokens)
 
-
+  # This method reads the file 
   def readcsv(self):
     data = pd.read_csv(self.filename, header=None)
     data.head()
@@ -92,20 +94,9 @@ class AntonymReplacer():
     x = data[0]
     y = data[1]
     return x, y
-
-  def creatingPipeline(self):
-    tfidf = TfidfVectorizer(tokenizer=self.text_data_cleaning)
-    classifier = LinearSVC()
-    clf = Pipeline([('tfidf', tfidf), ('clf', classifier)])
-    return clf
-
-  def Training(self):
-    x, y = self.readcsv()
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-    training_pipeline = self.creatingPipeline()
-    training_pipeline.fit(X_train, y_train)
-    y_pred = training_pipeline.predict(X_test)
-    training_pipeline.predict(["I am not happy"])
-    print(training_pipeline)
-    print(classification_report(y_test, y_pred))
-    return training_pipeline
+  
+if __name__ == '__main__':
+  # main()
+  object = SentimentAnalysis()
+  execute = object.replace_neg("I did not like it")
+  print(str(execute))
