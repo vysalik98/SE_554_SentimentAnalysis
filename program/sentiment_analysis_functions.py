@@ -91,9 +91,9 @@ class SentimentAnalysis():
             return sentence
 
     def text_data_cleaning(self, sentence):
-        doc = self.nlp(self.replace_neg(sentence))
+        # doc = self.nlp(self.replace_neg(sentence))
         # 
-        # doc = self.nlp(sentence)
+        doc = self.nlp(sentence)
 
         tokens = []
         for token in doc:
