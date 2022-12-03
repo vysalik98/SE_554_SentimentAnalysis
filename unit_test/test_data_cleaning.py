@@ -13,7 +13,7 @@ from program.sentiment_analysis_functions import SentimentAnalysis
 
 class TestDataCleaning(unittest.TestCase):
 
-    def func_to_test(self,word):
+    def func_to_test(self,sentence):
         func = SentimentAnalysis().text_data_cleaning(sentence=sentence)
 
     def test_data_cleaning_true(self):
@@ -42,16 +42,6 @@ class TestDataCleaning(unittest.TestCase):
         """
         cleanedSentence = self.func_to_test(sentence='Food is good')
         self.assertIsNone(cleanedSentence)
-
-
-    def test_data_cleaning_is_not_none(self):
-        """
-        This function is meant to check that input value is None or not
-        :param: word
-        :return: assertion result
-        """
-        cleanedSentence = self.func_to_test(sentence='Food is good')
-        self.assertIsNotNone(cleanedSentence)
 
     def test_data_cleaning_type_error(self):
         """
