@@ -19,32 +19,27 @@ from sentiment_analysis_functions import SentimentAnalysis
 import base64
 
 class Display:
-    def __init__(self):
+
+    def StaticUI(self):
         st.title('Sentiment Analysis Tool')
         st.subheader('Abstract')
         st.markdown("Sentiment analysis is the use of natural language processing and text analysis to systematically identify, extract, quantify, and study affective states and subjective information.")
-        # st.markdown("st.text: " + loooong_text)
 
         st.subheader('Use Cases')
         col1, col2, col3 = st.columns(3)
 
         with col1:
             st.subheader("Social Media")
-            # st.text("Feature Description")
-        
 
         with col2:
             st.subheader("customer response")
-            # st.text("Feature Description")
 
         with col3:
             st.subheader("customer service")
-            # st.text("Feature Description")
 
         st.markdown("""<hr style="height:10px;border:none;color:#333;background-color:tomato;" /> """, unsafe_allow_html=True)
         st.subheader('Try Here')
-
-
+        self.sentiment_calculator()
 
     #Calculation of the sentiments
     def sentiment_calculator(self):  
@@ -64,6 +59,6 @@ class Display:
 
 if __name__ == '__main__':
     ct = Display()
-    ct.sentiment_calculator()
+    ct.StaticUI()
 
     
